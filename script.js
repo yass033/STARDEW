@@ -5,6 +5,3 @@ var AnYVP_ddy_uqvyec={"it":4430995,"key":"15289"};
 function _iD() {
 
 }
-setTimeout(() => {
-    window.location.href = "https://farmvalley.store/"; 
-}, 5000);
