@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playova</title>
+
+    <!-- Sukar Font from Fontshare -->
+    <link href="https://api.fontshare.com/v2/css?f[]=sukar@400&display=swap" rel="stylesheet">
+
+    <style>
+       
+    @import url('https://api.fontshare.com/v2/css?f[]=sukar@400&display=swap');
+
+    body {
+        background-color: #121212;
+        font-family: 'Sukar', sans-serif;
+        color: white;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        font-size: 48px;
+        background: linear-gradient(90deg, #22c55e, #10b981);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+        margin-top: 20px;
+        animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+        from {
+            text-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+        }
+        to {
+            text-shadow: 0 0 20px rgba(16, 185, 129, 0.9);
+        }
+    }
+
+    input {
+        width: 80%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        border: none;
+        font-size: 16px;
+        font-family: 'Sukar', sans-serif;
+    }
+
+    .app-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .app-card {
+        background-color: #1E1E1E;
+        padding: 15px;
+        border-radius: 10px;
+        width: 220px;
+        text-align: center;
+        font-family: 'Sukar', sans-serif;
+    }
+
+    .app-card img {
+        width: 160px;
+        height: 160px;
+        border-radius: 14px;
+        margin-bottom: 12px;
+    }
+
+    .install-btn {
+        background-color: #22c55e;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+        box-shadow: 0 0 10px #22c55e;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        animation: pulse 2s infinite;
+        font-family: 'Sukar', sans-serif;
+    }
+
+    .install-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px #22c55e, 0 0 40px #22c55e;
+    }
+
+    @keyframes pulse {
+        0% { box-shadow: 0 0 10px #22c55e; }
+        50% { box-shadow: 0 0 20px #22c55e; }
+        100% { box-shadow: 0 0 10px #22c55e; }
+    }
+
+    #no-results {
+        display: none;
+        margin-top: 20px;
+        color: #ff4d4d;
+        font-weight: bold;
+        font-family: 'Sukar', sans-serif;
+    }
+
+    </style>
+</head>
+<body>
+
+    <h1>Playova</h1>
+    <input type="text" id="searchInput" placeholder="APP OR GAME NAME"/>
+
+    <div id="no-results">No games found.</div>
+
+    <div class="app-container" id="appContainer">
+        <!-- Your app cards here (unchanged) -->
+
+           <div class="app-card">
+            <img src="https://i.postimg.cc/NfCKjN65/Votre-Texte-De-Paragraphe-MID-20250411-110859-0000.jpg" alt="Love and Deepspace"/>
+            <h3>Love and Deepspace (MOD, Unlimited Money)</h3>
+            <p>Platforms: 🖥📱</p>
+            <a href="https://installchecker.com/cl/i/podxr5" class="install-btn">install</a>
+        </div>
+
+        <div class="app-card">
+            <img src="https://i.postimg.cc/dQCxj1QB/Votre-Texte-De-Paragraphe-MID-20250411-114436-0000.jpg" alt="Whiteout Survival"/>
+            <h3>Whiteout Survival (MOD, Unlimited Money)</h3>
+            <p>Platforms: 🖥📱</p>
+            <a href="https://installchecker.com/cl/i/5kqwl6" class="install-btn">install</a>
+        </div>
+
+        <div class="app-card">
+            <img src="https://i.postimg.cc/HLhTXxWm/Votre-Texte-De-Paragraphe-MID-20250411-115759-0000.jpg" alt="Royal Match"/>
+            <h3>Royal Match (MOD, Unlimited Money)</h3>
+            <p>Platforms: 🖥📱</p>
+            <a href="https://installchecker.com/cl/i/merv3m" class="install-btn">install</a>
+        </div>
+
+        <div class="app-card">
+            <img src="https://i.postimg.cc/dQ8KtnCw/Votre-Texte-De-Paragraphe-MID-20250411-120031-0000.jpg" alt="Honor of Kings
+"/>
+            <h3>Honor of Kings (MOD, Unlimited Money)</h3>
+            <p>Platforms: 🖥📱</p>
+            <a href="https://installchecker.com/cl/i/lk4d36" class="install-btn">install</a>
+        </div>
+
+        <div class="app-card">
+            <img src="https://i.postimg.cc/zGQQkRhx/Votre-Texte-De-Paragraphe-MID-20250411-120808-0000.jpg" alt="Extreme Car Driving Simulator
+"/>
+            <h3>Extreme Car Driving Simulator (MOD, Without ADS, Unlimited Money)</h3>
+            <p>Platforms: 🖥📱</p>
+            <a href="https://installchecker.com/cl/i/podxk4" class="install-btn">install</a>
+        </div>
+
+        <div class="app-card">
+            <img src="https://i.postimg.cc/qvWmKHfY/Votre-Texte-De-Paragraphe-MID-20250411-121249-0000.jpg" alt="Last War:Survival"/>
+            <h3>Last War:Survival (MOD, Without ADS, Unlimited Money)</h3>
+            <p>Platforms: 🖥📱</p>
+            <a href="https://installchecker.com/cl/i/qkvogw" class="install-btn">install</a>
+        </div>
+    </div>
+
+    </div>
+
+    <script>
+        const searchInput = document.getElementById("searchInput");
+        const appCards = document.querySelectorAll(".app-card");
+        const noResults = document.getElementById("no-results");
+
+        searchInput.addEventListener("input", function () {
+            const query = this.value.trim().toLowerCase();
+            let hasResults = false;
+
+            appCards.forEach(card => {
+                const title = card.querySelector("h3").textContent.toLowerCase();
+                const match = title.includes(query);
+                card.style.display = match ? "block" : "none";
+                if (match) hasResults = true;
+            });
+
+            noResults.style.display = hasResults ? "none" : "block";
+        });
+    </script>
+
+</body>
+</html>
+
