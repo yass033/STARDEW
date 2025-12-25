@@ -135,6 +135,9 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(147, 51, 234, 0.3);
         }
+        .status-label {
+            color: #9333ea; /* Purple color for status labels */
+        }
         .status-online {
             color: #4ade80;
         }
@@ -414,14 +417,14 @@
     <div class="main-content">
         <!-- Header -->
         <div class="header">
-            <img class="logo" alt="Evolution Card Icon" src="https://static.wikia.nocookie.net/clashroyale/images/5/55/Card_Evolution.png/revision/latest?cb=20240314065615" crossorigin="anonymous">
+            <img class="logo" alt="Evolution Card Icon" src="https://i.postimg.cc/rpX8T2TY/Card-Evolution.webp">
             <h2 class="title">Evolution Cards Generator</h2>
             <div class="status-container">
                 <div class="status-card">
-                    Status: <span class="status-online">Online</span>
+                    <span class="status-label">Status:</span> <span class="status-online">Online</span>
                 </div>
                 <div class="status-card">
-                    Players Online: <span class="status-online" id="onlineUsersCount">24,531</span>
+                    <span class="status-label">Players Online:</span> <span class="status-online" id="onlineUsersCount">24,531</span>
                 </div>
             </div>
         </div>
@@ -435,7 +438,7 @@
     <!-- Notification -->
     <div class="notification" id="notification">
         <div class="notification-content">
-            <img class="notification-avatar" id="notificationAvatar" src="/placeholder.svg" alt="Avatar" crossorigin="anonymous">
+            <img class="notification-avatar" id="notificationAvatar" src="/placeholder.svg" alt="Avatar">
             <div>
                 <p class="notification-user" id="notificationUser"></p>
                 <p class="notification-action" id="notificationAction"></p>
@@ -446,7 +449,7 @@
     <!-- Modal -->
     <section class="modal" id="modal">
         <div class="modal-content">
-            <img class="modal-logo" alt="Evolution Card Icon" src="https://static.wikia.nocookie.net/clashroyale/images/5/55/Card_Evolution.png/revision/latest?cb=20240314065615" crossorigin="anonymous">
+            <img class="modal-logo" alt="Evolution Card Icon" src="https://i.postimg.cc/rpX8T2TY/Card-Evolution.webp">
             <div class="step" id="step1">
                 <input class="username-input" placeholder="Enter Your Player Tag" type="text" id="usernameInput">
             </div>
@@ -474,53 +477,55 @@
     <script>
         // Data for Clash Royale Evolution Cards
         const items = [
-            { name: "Barbarians Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/2/2c/BarbariansEvoShard.png/revision/latest?cb=20250907033100" },
-            { name: "Royal Giant Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/4/4b/RoyalGiantEvoShard.png/revision/latest?cb=20250907033301" },
-            { name: "Firecracker Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/1/11/FirecrackerEvoShard.png/revision/latest?cb=20250907033652" },
-            { name: "Skeletons Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/4/4a/SkeletonsEvoShard.png/revision/latest?cb=20250907033408" },
-            { name: "Mortar Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/7/70/MortarEvoShard.png/revision/latest?cb=20240310091509" },
-            { name: "Knight Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/a/a0/KnightEvoShard.png/revision/latest?cb=20240310090913" },
-            { name: "Royal Recruits Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/a/ab/RoyalRecruitsEvoShard.png/revision/latest?cb=20240310094055" },
-            { name: "Bats Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/0/0b/BatsEvoShard.png/revision/latest?cb=20250907033227" },
-            { name: "Archers Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/e/ec/ArchersEvoShard.png/revision/latest?cb=20250907033618" },
-            { name: "Ice Spirit Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/0/0b/IceSpiritEvoShard.png/revision/latest?cb=20250907033732" },
-            { name: "Valkyrie Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/2/28/ValkyrieEvoShard.png/revision/latest?cb=20250908025627" },
-            { name: "Bomber Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/e/ef/BomberEvoShard.png/revision/latest?cb=20250907033445" },
-            { name: "Wall Breakers Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/8/83/WallBreakersEvoShard.png/revision/latest?cb=20250907033334" },
-            { name: "Tesla Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/3/39/TeslaEvoShard.png/revision/latest?cb=20250907033820" },
-            { name: "Zap Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/2/27/ZapEvoShard.png/revision/latest?cb=20240311212518" },
-            { name: "Battle Ram Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/e/e6/Evolved_Battle_Ram_Evo_Shard.png/revision/latest?cb=20250116210923" },
-            { name: "Wizard Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/b/bc/WizardEvoShard.png/revision/latest?cb=20250116184447" },
-            { name: "Goblin Barrel Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/0/02/GoblinBarrelEvoShard.png/revision/latest?cb=20250907212857" },
-            { name: "Goblin Giant Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/3/38/GoblinGiantEvoShard.png/revision/latest?cb=20240803064546" },
-            { name: "Goblin Drill Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/f/f6/GoblinDrillEvoShard.png/revision/latest?cb=20250907212810" },
-            { name: "Goblin Cage Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/4/47/GobinCageEvoShard.png/revision/latest?cb=20240902124853" },
-            { name: "P.E.K.K.A. Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/d/d6/PEKKAEvoShard.png/revision/latest?cb=20240902124921" },
-            { name: "Mega Knight Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/e/e9/MegaKnightEvoShard.png/revision/latest?cb=20240902125018" },
-            { name: "Electro Dragon Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/9/97/ElectroDragonEvoShard.png/revision/latest?cb=20250907032029" },
-            { name: "Musketeer Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/c/c5/MusketeerEvoShard.png/revision/latest?cb=20250116184612" },
-            { name: "Cannon Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/2/29/CannonEvoShard.png/revision/latest?cb=20250116184533" },
-            { name: "Giant Snowball Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/6/6a/GiantSnowballEvoShard.png/revision/latest?cb=20250119152536" },
-            { name: "Dart Goblin Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/3/32/DartGoblinEvoShard.png/revision/latest?cb=20250116205227" },
-            { name: "Lumberjack Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/c/c8/LumberjackEvoShard.png/revision/latest?cb=20250216033309" },
-            { name: "Hunter Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/5/5e/HunterEvoShard.png/revision/latest?cb=20250305112918" },
-            { name: "Executioner Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/d/d7/ExecutionerEvoShard.png/revision/latest?cb=20250407191026" },
-            { name: "Witch Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/4/46/WitchEvoShard.png/revision/latest?cb=20250527121732" },
-            { name: "Inferno Dragon Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/7/75/InfernoDragonEvoShard.png/revision/latest?cb=20250619132253" },
-            { name: "Skeleton Barrel Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/b/b6/SkeletonBarrelEvoShard.png/revision/latest?cb=20250713185623" },
-            { name: "Furnace Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/b/ba/FurnaceEvoShard.png/revision/latest?cb=20250804224559" },
-            { name: "Baby Dragon Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/b/b1/BabyDragonEvoShard.png/revision/latest?cb=20250905233208" },
-            { name: "Skeleton Army Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/6/6a/SkeletonArmyEvoShard.png/revision/latest?cb=20251006183952" },
-            { name: "Royal Ghost Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/7/7e/RoyalGhostEvoShard.png/revision/latest?cb=20251006184115" },
-            { name: "Royal Hogs Evolution Shard", image: "https://static.wikia.nocookie.net/clashroyale/images/2/26/RoyalHogsEvoShard.png/revision/latest?cb=20251103214801" }
+            { name: "Archers Evolution Shard", image: "https://i.postimg.cc/9FnK3P2q/Baby-Dragon-Evo-Shard.webp" },
+            { name: "Baby Dragon Evolution Shard", image: "https://i.postimg.cc/9FnK3P2q/Baby-Dragon-Evo-Shard.webp" },
+            { name: "Barbarians Evolution Shard", image: "https://i.postimg.cc/fW51Cngm/Barbarians-Evo-Shard-(1).webp" },
+            { name: "Bats Evolution Shard", image: "https://i.postimg.cc/SQVHdFtw/Bats-Evo-Shard-(1).webp" },
+            { name: "Bomber Evolution Shard", image: "https://i.postimg.cc/m2DJ6X05/Bomber-Evo-Shard-(1).webp" },
+            { name: "Cannon Evolution Shard", image: "https://i.postimg.cc/nczgwRyM/Cannon-Evo-Shard.webp" },
+            { name: "Dart Goblin Evolution Shard", image: "https://i.postimg.cc/qMRSZbP3/Dart-Goblin-Evo-Shard.webp" },
+            { name: "Electro Dragon Evolution Shard", image: "https://i.postimg.cc/MKTNrPCn/Electro-Dragon-Evo-Shard.webp" },
+            { name: "Battle Ram Evolution Shard", image: "https://i.postimg.cc/yYdtrQwM/Evolved-Battle-Ram-Evo-Shard.webp" },
+            { name: "Executioner Evolution Shard", image: "https://i.postimg.cc/CLQXyC0R/Executioner-Evo-Shard.webp" },
+            { name: "Firecracker Evolution Shard", image: "https://i.postimg.cc/bYL4gcFm/Firecracker-Evo-Shard-(1).webp" },
+            { name: "Furnace Evolution Shard", image: "https://i.postimg.cc/tCMw0dbZ/Furnace-Evo-Shard.webp" },
+            { name: "Giant Snowball Evolution Shard", image: "https://i.postimg.cc/65mgsVKQ/Giant-Snowball-Evo-Shard.webp" },
+            { name: "Goblin Cage Evolution Shard", image: "https://i.postimg.cc/Wb3CfWBp/Gobin-Cage-Evo-Shard.webp" },
+            { name: "Goblin Barrel Evolution Shard", image: "https://i.postimg.cc/gkJQBSCm/Goblin-Barrel-Evo-Shard.webp" },
+            { name: "Goblin Drill Evolution Shard", image: "https://i.postimg.cc/NfMSPJ3s/Goblin-Drill-Evo-Shard.webp" },
+            { name: "Goblin Giant Evolution Shard", image: "https://i.postimg.cc/7Y6dQsFy/Goblin-Giant-Evo-Shard.webp" },
+            { name: "Hunter Evolution Shard", image: "https://i.postimg.cc/m25Jx342/Hunter-Evo-Shard-(1).webp" },
+            { name: "Ice Spirit Evolution Shard", image: "https://i.postimg.cc/fW51CnrZ/Ice-Spirit-Evo-Shard-(1).webp" },
+            { name: "Inferno Dragon Evolution Shard", image: "https://i.postimg.cc/tCMw0dbY/Inferno-Dragon-Evo-Shard.webp" },
+            { name: "Knight Evolution Shard", image: "https://i.postimg.cc/1RMbBhY7/Knight-Evo-Shard-(1).webp" },
+            { name: "Lumberjack Evolution Shard", image: "https://i.postimg.cc/Wb3CfWBZ/Lumberjack-Evo-Shard.webp" },
+            { name: "Mega Knight Evolution Shard", image: "https://i.postimg.cc/Yq9Zyn50/Mega-Knight-Evo-Shard.webp" },
+            { name: "Mortar Evolution Shard", image: "https://i.postimg.cc/h4MNsW3r/Mortar-Evo-Shard-(1).webp" },
+            { name: "Musketeer Evolution Shard", image: "https://i.postimg.cc/02QFHWT6/Musketeer-Evo-Shard.webp" },
+            { name: "PEKKA Evolution Shard", image: "https://i.postimg.cc/sDXq06kD/PEKKAEvo-Shard.webp" },
+            { name: "Royal Ghost Evolution Shard", image: "https://i.postimg.cc/3JcVMjhv/Royal-Ghost-Evo-Shard.webp" },
+            { name: "Royal Giant Evolution Shard", image: "https://i.postimg.cc/Y28TRKyX/Royal-Giant-Evo-Shard-(1).webp" },
+            { name: "Royal Hogs Evolution Shard", image: "https://i.postimg.cc/fTrp47sm/Royal-Hogs-Evo-Shard.webp" },
+            { name: "Royal Recruits Evolution Shard", image: "https://i.postimg.cc/1RMbBhYj/Royal-Recruits-Evo-Shard-(1).webp" },
+            { name: "Skeleton Army Evolution Shard", image: "https://i.postimg.cc/zXc6mwNH/Skeleton-Army-Evo-Shard.webp" },
+            { name: "Skeleton Barrel Evolution Shard", image: "https://i.postimg.cc/ZKM2kPm9/Skeleton-Barrel-Evo-Shard.webp" },
+            { name: "Skeletons Evolution Shard", image: "https://i.postimg.cc/wxFn28b0/Skeletons-Evo-Shard-(1).webp" },
+            { name: "Tesla Evolution Shard", image: "https://i.postimg.cc/SNs3tTwP/Tesla-Evo-Shard.webp" },
+            { name: "Valkyrie Evolution Shard", image: "https://i.postimg.cc/8kwx4Q0S/Valkyrie-Evo-Shard-(1).webp" },
+            { name: "Wall Breakers Evolution Shard", image: "https://i.postimg.cc/vHBkSqpk/Wall-Breakers-Evo-Shard.webp" },
+            { name: "Witch Evolution Shard", image: "https://i.postimg.cc/FsB8tbvz/Witch-Evo-Shard.webp" },
+            { name: "Wizard Evolution Shard", image: "https://i.postimg.cc/zXB6PtsY/Wizard-Evo-Shard-(1).webp" },
+            { name: "Zap Evolution Shard", image: "https://i.postimg.cc/Prx9F3BB/Zap-Evo-Shard.webp" }
         ];
 
         // Array of evolved character images for background animation
         const floatingIcons = [
-            "https://static.wikia.nocookie.net/clashroyale/images/d/d9/Evolved_Electro_Dragon_1.png/revision/latest/scale-to-width-down/1000?cb=20250110200541",
-            "https://static.wikia.nocookie.net/clashroyale/images/3/3e/Evolved_Lumberjack_alone.png/revision/latest/scale-to-width-down/1000?cb=20250921181911",
-            "https://static.wikia.nocookie.net/clashroyale/images/f/f8/Evolved_Hog.png/revision/latest/scale-to-width-down/1000?cb=20251103214828",
-            "https://static.wikia.nocookie.net/clashroyale/images/b/bf/Evolved_Wizard_1.png/revision/latest/scale-to-width-down/1000?cb=20250116183637"
+            "https://i.postimg.cc/T1yShhqp/Evolved-Archers-1.webp",
+            "https://i.postimg.cc/rsdbzzCr/Evolved-Hog.webp",
+            "https://i.postimg.cc/wMtP33cy/Evolved-Inferno-Dragon.webp",
+            "https://i.postimg.cc/yxJ5WWXD/Evolved-Knight-1.webp",
+            "https://i.postimg.cc/gjw5rrqk/Evolved-Royal-Recruit.webp",
+            "https://i.postimg.cc/Fzfq11gf/Evolved-Wizard-1.webp"
         ];
 
         const notificationsData = [
@@ -635,7 +640,7 @@
                 const li = document.createElement('li');
                 li.className = 'item-card';
                 li.innerHTML = `
-                    <img alt="${item.name}" class="item-image" src="${item.image}" crossorigin="anonymous">
+                    <img alt="${item.name}" class="item-image" src="${item.image}">
                     <p class="item-name">${item.name}</p>
                 `;
                 
@@ -729,7 +734,6 @@
                 const img = document.createElement('img');
                 img.src = iconUrl;
                 img.alt = 'Floating Character';
-                img.crossOrigin = "anonymous";
                 
                 // Add error handling for floating icons
                 img.onerror = function() {
